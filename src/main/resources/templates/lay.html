@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+
+    <th:block th:fragment="text_frag(title, content)">
+
+        <h1 th:text="${title}">titre donné</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, incidunt.
+        </p>
+
+        <div th:insert="${content}">
+
+        </div>
+
+    </th:block>
+
+</html>

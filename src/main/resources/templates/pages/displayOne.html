@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr" th:replace="~{/layout/layout :: layout(~{::toto},~{::css}) }">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TESTING</title>
+
+    <th:block th:fragment="css">
+        <link rel="stylesheet" href="../../static/css/specific.css" th:href="@{/css/specific.css}">
+    </th:block>
+
+</head>
+<body>
+
+    <th:block th:object="${produit}" th:fragment="toto">
+        <h1 th:text="| Produit d'id: *{id} |"> </h1>
+        <p>marque:
+            <a th:href="@{/produit/by_brand(marque=*{marque})}"
+               th:text="*{marque}">
+            </a>
+        </p>
+        <p th:text="|modele: *{modele}|">BipBoup</p>
+        <p th:text="*{enVente} ? 'disponible' : 'indisponible'"></p>
+        <p th:text="|*{prix} euros|"></p>
+        <p><a href="/produit">retour</a></p>
+    </th:block>
+
+</body>
+</html>
